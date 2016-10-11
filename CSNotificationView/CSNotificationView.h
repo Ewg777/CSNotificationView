@@ -23,23 +23,23 @@ typedef void(^CSVoidBlock)();
 
 #pragma mark + quick presentation
 
-+ (CSNotificationView)showInViewController:(UIViewController*)viewController
-                                     style:(CSNotificationViewStyle)style
-                                   message:(NSString*)message;
++ (CSNotificationView*)showInViewController:(UIViewController*)viewController
+                                      style:(CSNotificationViewStyle)style
+                                    message:(NSString*)message;
 
-+ (CSNotificationView)showInViewController:(UIViewController*)viewController
-                                 tintColor:(UIColor*)tintColor
-                                     image:(UIImage*)image
-                                   message:(NSString*)message
-                                  duration:(NSTimeInterval)duration;
++ (CSNotificationView*)showInViewController:(UIViewController*)viewController
+                                  tintColor:(UIColor*)tintColor
+                                      image:(UIImage*)image
+                                    message:(NSString*)message
+                                   duration:(NSTimeInterval)duration;
 
-+ (CSNotificationView)showInViewController:(UIViewController*)viewController
-                                 tintColor:(UIColor*)tintColor
-                                      font:(UIFont*)font
-                             textAlignment:(NSTextAlignment)textAlignment
-                                     image:(UIImage*)image
-                                   message:(NSString*)message
-                                  duration:(NSTimeInterval)duration;
++ (CSNotificationView*)showInViewController:(UIViewController*)viewController
+                                  tintColor:(UIColor*)tintColor
+                                       font:(UIFont*)font
+                              textAlignment:(NSTextAlignment)textAlignment
+                                      image:(UIImage*)image
+                                    message:(NSString*)message
+                                   duration:(NSTimeInterval)duration;
 
 #pragma mark + creators
 

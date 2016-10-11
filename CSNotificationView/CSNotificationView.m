@@ -16,7 +16,7 @@
 
 #pragma mark + quick presentation
 
-+ (CSNotificationView)showInViewController:(UIViewController*)viewController
++ (CSNotificationView*)showInViewController:(UIViewController*)viewController
                                  tintColor:(UIColor*)tintColor
                                      image:(UIImage*)image
                                    message:(NSString*)message
@@ -40,7 +40,7 @@
     return note;
 }
 
-+ (CSNotificationView)showInViewController:(UIViewController*)viewController
++ (CSNotificationView*)showInViewController:(UIViewController*)viewController
                                  tintColor:(UIColor*)tintColor
                                       font:(UIFont*)font
                              textAlignment:(NSTextAlignment)textAlignment
@@ -68,7 +68,7 @@
     return note;
 }
 
-+ (CSNotificationView)showInViewController:(UIViewController *)viewController
++ (CSNotificationView*)showInViewController:(UIViewController *)viewController
              style:(CSNotificationViewStyle)style
            message:(NSString *)message
 {
