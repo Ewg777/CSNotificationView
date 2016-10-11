@@ -16,19 +16,19 @@
 
 #pragma mark + quick presentation
 
-+ (void)showInViewController:(UIViewController*)viewController
-         tintColor:(UIColor*)tintColor
-             image:(UIImage*)image
-           message:(NSString*)message
-          duration:(NSTimeInterval)duration
++ (CSNotificationView)showInViewController:(UIViewController*)viewController
+                                 tintColor:(UIColor*)tintColor
+                                     image:(UIImage*)image
+                                   message:(NSString*)message
+                                  duration:(NSTimeInterval)duration
 {
     NSAssert(message, @"'message' must not be nil.");
-    
+
     __block CSNotificationView* note = [[CSNotificationView alloc] initWithParentViewController:viewController];
     note.tintColor = tintColor;
     note.image = image;
     note.textLabel.text = message;
-    
+
     void (^completion)() = ^{[note setVisible:NO animated:YES completion:nil];};
     [note setVisible:YES animated:YES completion:^{
         double delayInSeconds = duration;
@@ -37,26 +37,26 @@
             completion();
         });
     }];
-    
+    return note;
 }
 
-+ (void)showInViewController:(UIViewController*)viewController
-                   tintColor:(UIColor*)tintColor
-                        font:(UIFont*)font
-               textAlignment:(NSTextAlignment)textAlignment
-                       image:(UIImage*)image
-                     message:(NSString*)message
-                    duration:(NSTimeInterval)duration
++ (CSNotificationView)showInViewController:(UIViewController*)viewController
+                                 tintColor:(UIColor*)tintColor
+                                      font:(UIFont*)font
+                             textAlignment:(NSTextAlignment)textAlignment
+                                     image:(UIImage*)image
+                                   message:(NSString*)message
+                                  duration:(NSTimeInterval)duration
 {
     NSAssert(message, @"'message' must not be nil.");
-    
+
     __block CSNotificationView* note = [[CSNotificationView alloc] initWithParentViewController:viewController];
     note.tintColor = tintColor;
     note.image = image;
     note.textLabel.font = font;
     note.textLabel.textAlignment = textAlignment;
     note.textLabel.text = message;
-    
+
     void (^completion)() = ^{[note setVisible:NO animated:YES completion:nil];};
     [note setVisible:YES animated:YES completion:^{
         double delayInSeconds = duration;
@@ -65,16 +65,15 @@
             completion();
         });
     }];
-    
+    return note;
 }
 
-+ (void)showInViewController:(UIViewController *)viewController
++ (CSNotificationView)showInViewController:(UIViewController *)viewController
              style:(CSNotificationViewStyle)style
            message:(NSString *)message
 {
-    
-    
-    [CSNotificationView showInViewController:viewController
+
+    return [CSNotificationView showInViewController:viewController
                          tintColor:[CSNotificationView blurTintColorForStyle:style]
                              image:[CSNotificationView imageForStyle:style]
                            message:message
